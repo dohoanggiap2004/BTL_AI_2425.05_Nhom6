@@ -110,7 +110,7 @@ const Home = () => {
     type TreeNode = LeafNode | DecisionNode;
 
     // Hàm xây dựng cây quyết định
-    function buildDecisionTree(data: DataPoint[], features: (keyof DataPoint)[], depth = 0, maxDepth = 5): TreeNode {
+    function buildDecisionTree(data: DataPoint[], features: (keyof DataPoint)[], depth = 0, maxDepth = 15): TreeNode {
         const labels = data.map((item) => item.price);
         const uniqueLabels = [...new Set(labels)];
 
@@ -212,14 +212,6 @@ const Home = () => {
         }
     };
 
-    const formatNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const input = event.target;
-        if (input && input.value) {
-            const numericValue = input.value.replace(/\D/g, ""); // Chỉ lấy số
-            input.value = Number(numericValue).toLocaleString("vi-VN");
-        }
-    };
-
     return (
         <div className="flex flex-col items-center">
             <div className="assignment">
@@ -271,7 +263,6 @@ const Home = () => {
                         type="text"
                         id="luongmua"
                         ref={luongMuaRef}
-                        onChange={formatNumber} // Định dạng khi thay đổi input
                         className="border p-2"
                         placeholder="Nhập lượng mưa(mm)"
                     />
@@ -296,7 +287,6 @@ const Home = () => {
                         type="text"
                         id="cung"
                         ref={cungRef}
-                        onChange={formatNumber} // Định dạng khi thay đổi input
                         className="border p-2 w-60"
                         placeholder="Nhập khả năng cung cấp(tấn)"
                     />
@@ -309,7 +299,6 @@ const Home = () => {
                         type="text"
                         id="cau"
                         ref={cauRef}
-                        onChange={formatNumber}
                         className="border p-2 w-60"
                         placeholder="Nhập nhu cầu sử dụng(tấn)"
                     />
