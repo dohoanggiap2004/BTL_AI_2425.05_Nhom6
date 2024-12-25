@@ -1,11 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-
-('use client');
-
 import { Button } from '@/components/ui/button';
-
-import styles from '@/styles/styleHome.css';
 
 const Home = () => {
     // Tạo các ref để tham chiếu đến các input
@@ -221,7 +216,7 @@ const Home = () => {
         const input = event.target;
         if (input && input.value) {
             const numericValue = input.value.replace(/\D/g, ""); // Chỉ lấy số
-            input.value = Number(numericValue).toLocaleString("vi-VN"); // Định dạng theo kiểu Việt Nam
+            input.value = Number(numericValue).toLocaleString("vi-VN");
         }
     };
 
@@ -278,7 +273,7 @@ const Home = () => {
                         ref={luongMuaRef}
                         onChange={formatNumber} // Định dạng khi thay đổi input
                         className="border p-2"
-                        placeholder="Nhập lượng mưa"
+                        placeholder="Nhập lượng mưa(mm)"
                     />
                 </div>
 
@@ -289,9 +284,8 @@ const Home = () => {
                         type="text"
                         id="nhietdo"
                         ref={nhietDoRef}
-                        onChange={formatNumber} // Định dạng khi thay đổi input
                         className="border p-2"
-                        placeholder="Nhập nhiệt độ"
+                        placeholder="Nhập nhiệt độ(°C)"
                     />
                 </div>
 
@@ -303,8 +297,8 @@ const Home = () => {
                         id="cung"
                         ref={cungRef}
                         onChange={formatNumber} // Định dạng khi thay đổi input
-                        className="border p-2"
-                        placeholder="Nhập khả năng cung cấp"
+                        className="border p-2 w-60"
+                        placeholder="Nhập khả năng cung cấp(tấn)"
                     />
                 </div>
 
@@ -315,9 +309,9 @@ const Home = () => {
                         type="text"
                         id="cau"
                         ref={cauRef}
-                        onChange={formatNumber} // Định dạng khi thay đổi input
-                        className="border p-2"
-                        placeholder="Nhập nhu cầu sử dụng"
+                        onChange={formatNumber}
+                        className="border p-2 w-60"
+                        placeholder="Nhập nhu cầu sử dụng(tấn)"
                     />
                 </div>
             </div>
